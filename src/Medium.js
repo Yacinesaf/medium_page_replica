@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AppBar, Typography, Toolbar, Grid, Button } from '@material-ui/core';
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -7,6 +7,7 @@ import BigArticleComponent from './BigArticleComponent';
 import SmallArticleComponent from './SmallArticleComponent';
 import { articles } from './ArticlesObject'
 import RegularArticleComponenet from './RegularArticleComponent';
+import DialogComponent from './DialogComponent'
 
 function Medium() {
   const space = (type, direction, value) => {
@@ -29,9 +30,22 @@ function Medium() {
     }
     return obj
   }
+
+  const [isDialogShown, setIsDialogShown] = useState(false);
+
+  const handleClickOpen = () => {
+    setIsDialogShown(true);
+  };
+  const handleClose = () => {
+    setIsDialogShown(false);
+  };
+
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
   const xsOnly = useMediaQuery(theme.breakpoints.only('xs'));
+
+  
+
 
 
   return (
@@ -56,7 +70,7 @@ function Medium() {
                   Sign in
             </Typography>
               </div>
-              <Button color='inherit' variant='outlined' style={{ color: 'rgba(2, 158, 116, 1)', textTransform: 'none' }} size='medium'>
+              <Button onClick={handleClickOpen} color='inherit' variant='outlined' style={{ color: 'rgba(2, 158, 116, 1)', textTransform: 'none' }} size='medium'>
                 Get Started
             </Button>
             </Toolbar>
@@ -110,6 +124,7 @@ function Medium() {
           </Grid>
         </Grid>
       </Grid>
+      <DialogComponent handleCloseProp={handleClose} bool={isDialogShown} />
     </div>
   )
 }
