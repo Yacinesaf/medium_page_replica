@@ -43,8 +43,15 @@ function Medium() {
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
   const xsOnly = useMediaQuery(theme.breakpoints.only('xs'));
+  let mainArticle = articles[Math.floor(Math.random() * articles.length)];
 
-  
+  const randomIndexes =(n) => {
+    let list =[];
+    for(let i =0; i < n; i++) {
+      list.push(Math.floor(Math.random() * articles.length))
+    }
+    return list
+  }
 
 
 
@@ -70,7 +77,7 @@ function Medium() {
                   Sign in
             </Typography>
               </div>
-              <Button onClick={handleClickOpen} color='inherit' variant='outlined' style={{ color: 'rgba(2, 158, 116, 1)', textTransform: 'none' }} size='medium'>
+              <Button onClick={() => {console.log(isDialogShown); handleClickOpen()}} color='inherit' variant='outlined' style={{ color: 'rgba(2, 158, 116, 1)', textTransform: 'none' }} size='medium'>
                 Get Started
             </Button>
             </Toolbar>
@@ -81,12 +88,12 @@ function Medium() {
         <Grid className="mainGrid" item xl={10} lg={10} md={11} sm={12} xs={12} style={{ paddingTop: xsOnly ? 0 : 40 }} >
           <Grid container justify='center'>
             <Grid item md={8} sm={11} xs={11} style={{ paddingRight: smDown ? 0 : 40 }}>
-              <BigArticleComponent article={articles[0]} />
+              <BigArticleComponent article={mainArticle} />
               <Typography variant="subtitle2" style={{ fontWeight: 550, borderBottom: '1px solid lightgrey', marginTop: 30 }}>LATEST</Typography>
               <div style={{ paddingBottom: 15 }}>
-                <RegularArticleComponenet article={articles[6]} />
-                <RegularArticleComponenet article={articles[7]} />
-                <RegularArticleComponenet article={articles[8]} />
+                {randomIndexes(3).map((x, i) => (
+                  <RegularArticleComponenet key={i} article={articles[x]} />
+                ))}
               </div>
             </Grid>
             <Grid item lg={4} xl={4} md={4} sm={12} xs={12} style={{ paddingLeft: 30 }}>
@@ -112,19 +119,17 @@ function Medium() {
               <Typography style={{ color: 'grey', fontSize: 12, paddingBottom: 10 }} >BIOTECH</Typography>
               <Typography variant="subtitle1" color='inherit' style={{ fontWeight: 600, marginTop: 40, borderBottom: '1px solid lightgrey' }}>
                 POPULAR IN TECHNOLOGY
-            </Typography>
+              </Typography>
               <div style={{ paddingBottom: 10, display: smDown ? 'none' : 'unset' }}>
-                <SmallArticleComponent article={articles[1]} />
-                <SmallArticleComponent article={articles[2]} />
-                <SmallArticleComponent article={articles[3]} />
-                <SmallArticleComponent article={articles[4]} />
-                <SmallArticleComponent article={articles[5]} />
+                {randomIndexes(5).map((x,i) => (
+                  <SmallArticleComponent key={i} article={articles[x]} />
+                ))}
               </div>
             </Grid>
           </Grid>
         </Grid>
       </Grid>
-      <DialogComponent handleCloseProp={handleClose} bool={isDialogShown} />
+      <DialogComponent handleClose={handleClose} bool={isDialogShown} />
     </div>
   )
 }

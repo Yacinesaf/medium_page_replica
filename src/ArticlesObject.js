@@ -1,10 +1,10 @@
-import BigImg from './alex-knight-5-GNa303REg-unsplash.jpg'
-import img1 from './artiom-vallat-1uBCLmu5BqA-unsplash.jpg'
-import img2 from './artiom-vallat-awHbsDUY5FI-unsplash.jpg'
-import img3 from './aviv-rachmadian-5fZqHF21CIw-unsplash.jpg'
-import img4 from './balkouras-nicos-BMBUEXaFvGI-unsplash.jpg'
-import img5 from './emmanuel-WcrqKjgMPfI-unsplash.jpg'
-import sliker from './sliker-main.jpg'
+import BigImg from './images/alex-knight-5-GNa303REg-unsplash.jpg'
+import img1 from './images/artiom-vallat-1uBCLmu5BqA-unsplash.jpg'
+import img2 from './images/artiom-vallat-awHbsDUY5FI-unsplash.jpg'
+import img3 from './images/aviv-rachmadian-5fZqHF21CIw-unsplash.jpg'
+import img4 from './images/balkouras-nicos-BMBUEXaFvGI-unsplash.jpg'
+import img5 from './images/emmanuel-WcrqKjgMPfI-unsplash.jpg'
+import sliker from './images/sliker-main.jpg'
 
 
 
@@ -23,8 +23,8 @@ const articles = [
     title : 'How Mormons Built the Next Silicon Valley While No One Was Looking',
     subTitle : '',
     imgUrl : img1,
-    author : '',
-    date : '',
+    author : 'Mohammed Jihad Sliker',
+    date : 'Jan 23',
     timeRead : '23 min read',
     isBookmarked : false,
     authorImgUrl : null
@@ -33,8 +33,8 @@ const articles = [
     title : 'We Finally Figured Out Who Makes wikiHow’s Bizarre Art',
     subTitle : '',
     imgUrl : img2,
-    author : '',
-    date : '',
+    author : 'Mohammed Jihad Sliker',
+    date : 'Jan 23',
     timeRead : '75min read',
     isBookmarked : false,
     authorImgUrl : null
@@ -43,8 +43,8 @@ const articles = [
     title : 'How Science Fiction Imagined the 2020s',
     subTitle : '',
     imgUrl : img3,
-    author : '',
-    date : '',
+    author : 'Mohammed Jihad Sliker',
+    date : 'Jan 23',
     timeRead : '15min read',
     isBookmarked : false,
     authorImgUrl : null
@@ -53,8 +53,8 @@ const articles = [
     title : 'How to Configure Your iPhone to Work for You, Not Against You',
     subTitle : '',
     imgUrl : img4,
-    author : '',
-    date : '',
+    author : 'Mohammed Jihad Sliker',
+    date : 'Jan 23',
     timeRead : '9min read',
     isBookmarked : false,
     authorImgUrl : null
@@ -63,8 +63,8 @@ const articles = [
     title : 'Survival of the Richest',
     subTitle : '',
     imgUrl : img5,
-    author : '',
-    date : '',
+    author : 'Mohammed Jihad Sliker',
+    date : 'Jan 23',
     timeRead : '45min read',
     isBookmarked : false,
     authorImgUrl : null
