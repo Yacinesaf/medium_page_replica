@@ -6,6 +6,7 @@ import CloudIcon from '@material-ui/icons/Cloud';
 import BigArticleComponent from './BigArticleComponent';
 import SmallArticleComponent from './SmallArticleComponent';
 import { articles } from './ArticlesObject'
+import { subject } from './subjectObject'
 import RegularArticleComponenet from './RegularArticleComponent';
 import DialogComponent from './DialogComponent'
 import TechAndTopics from './TechAndTopics';
@@ -46,6 +47,7 @@ function Medium() {
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
   const xsOnly = useMediaQuery(theme.breakpoints.only('xs'));
   let mainArticle = articles[Math.floor(Math.random() * articles.length)];
+  let randomSubject = subject[Math.floor(Math.random() * subject.length)];
 
   const randomIndexes =(n) => {
     let list =[];
@@ -54,13 +56,11 @@ function Medium() {
     }
     return list
   }
-  let relatedTopics = ['SOFTWARE ENGENEERING', 'PROGRAMMING', 'ARTIFICIAL INTELLIGENCE', 'CRYPTOCURRENCY', 'BIOTECH'];
 
 
 
   return (
     <div>
-
       <AppBar position='static' style={{ backgroundColor: 'white', boxShadow: '0 4px 12px 0 rgba(0, 0, 0, 0.05)', marginBottom : 20}} elevation={0}>
         <Grid container justify='center'>
           <Grid item xs={11} lg={10} md={11}>
@@ -70,7 +70,7 @@ function Medium() {
                 Medium
             </Typography>
               <Typography style={{ color: 'black', flexGrow: 1, paddingLeft: 10, borderLeft: 'solid 1px lightgrey' }} variant='subtitle1'>
-                Technology
+                {randomSubject.subject}
             </Typography>
               <div style={{ display: smDown ? 'none' : 'flex' }}>
                 <Typography style={{ color: 'grey' }}>
@@ -101,7 +101,7 @@ function Medium() {
               </div>
             </Grid>
             <Grid item lg={4} xl={4} md={4} sm={12} xs={12} style={{ paddingLeft: 30 }}>
-              <TechAndTopics relatedTopics={relatedTopics} />
+              <TechAndTopics  randomSubject={randomSubject} />
               <div style={{ paddingBottom: 10, display: smDown ? 'none' : 'unset' }}>
                 {randomIndexes(5).map((x,i) => (
                   <SmallArticleComponent key={i} article={articles[x]} />

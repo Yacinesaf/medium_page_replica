@@ -4,7 +4,7 @@ import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 
-function TechAndTopics({ relatedTopics }) {
+function TechAndTopics({ randomSubject }) {
 
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
@@ -12,7 +12,7 @@ function TechAndTopics({ relatedTopics }) {
   return (
     <div style={{ display: smDown ? 'none' : 'unset' }}>
       <Typography variant='h4' style={{ fontWeight: 500 }}>
-        Technology
+        {randomSubject.subject}
       </Typography>
       <Typography variant='subtitle1' style={{ paddingTop: 10, color: 'grey' }}>
         The download.
@@ -21,17 +21,17 @@ function TechAndTopics({ relatedTopics }) {
         Follow
       </Button>
       <Typography style={{ marginTop: 25, color: 'grey' }}>
-        Follow to get great stories about Technology in your inbox and on your homepage
+        {`Follow to get great stories about ${randomSubject.subject} in your inbox and on your homepage `}
       </Typography>
       <Typography variant="subtitle1" color='inherit' style={{ fontWeight: 600, marginTop: 40, borderBottom: '1px solid lightgrey' }}>
         RELATED TOPICS
       </Typography>
       <div style={{ paddingTop: 20 }}>
-        {relatedTopics.map((x, i) => (
+        {randomSubject.topics.map((x, i) => (
           <Typography key={i} style={{ color: 'grey', fontSize: 12, paddingBottom: 10 }} >{x}</Typography>
         ))}
         <Typography variant="subtitle1" color='inherit' style={{ fontWeight: 600, marginTop: 40, borderBottom: '1px solid lightgrey' }}>
-          POPULAR IN TECHNOLOGY
+          {'POPULAR IN ' + randomSubject.subject.toUpperCase()}
       </Typography>
       </div>
     </div>
