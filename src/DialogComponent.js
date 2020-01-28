@@ -17,22 +17,28 @@ function DialogComponent({ handleClose, bool }) {
   return (
     <div>
       <Dialog onClose={handleClose} open={bool} onBackdropClick={handleClose} maxWidth='md' >
-        <Card style={{ background: 'linear-gradient(to right, #ece9e6, #ffffff)', height : smDown ? 'unset' : 600 }}>
+        <Card style={{ background: 'linear-gradient(to right, #ece9e6, #ffffff)', height: smDown ? 'unset' : 600 }}>
           <Grid container justify='center'>
-            <Grid item lg={3}>
-            <div style={{backgroundImage : `url(${leftImage})`, backgroundPosition : 'center', width : '100%', height : '100%', backgroundSize :'cover'}}>
-            </div>
+          <div style={{position: "absolute", paddingLeft : 'calc(100% - 48px)' }}>
+                <IconButton aria-label="close" onClick={handleClose} >
+                  <CloseIcon />
+                </IconButton>
+              </div>
+            <Grid item md={3} style={{ display: smDown ? 'none' : 'unset' }}>
+              <div style={{ backgroundImage: `url(${leftImage})`, backgroundPosition: 'center', width: '100%', height: '100%', backgroundSize: 'cover' }}>
+              </div>
             </Grid>
-            <Grid item xs={11} lg={6} style={{paddingTop : 80}}>
+            <Grid item xs={11} sm={6} md={6} lg={6} style={{ paddingTop: smDown ? 40 : 80 }}>
+
               <Typography variant='h4' style={{ textAlign: "center", paddingBottom: 5, fontWeight: 500 }}>
                 Join Medium.
               </Typography>
               <Typography variant='body2' style={{ textAlign: "center", color: 'grey', paddingBottom: 25 }}>
                 Create an account to receive great stories in your inbox, personalize your homepage, and follow authors and topics that you love.
               </Typography>
-              <Grid container justify='center' style={{paddingBottom: 30 }}>
-                <Grid item xs={9} lg={6}>
-                  <Button fullWidth variant='outlined' startIcon={<GitHubIcon />} style={{ textTransform: 'none', marginBottom : 10 }}>
+              <Grid container justify='center' style={{ paddingBottom: 30 }}>
+                <Grid item xs={11} lg={6}>
+                  <Button fullWidth variant='outlined' startIcon={<GitHubIcon />} style={{ textTransform: 'none', marginBottom: 10 }}>
                     Sign up whith GitHub
                 </Button>
                   <Button fullWidth variant='outlined' startIcon={<FacebookIcon color='primary' />} style={{ textTransform: 'none' }}>
@@ -40,28 +46,22 @@ function DialogComponent({ handleClose, bool }) {
                 </Button>
                 </Grid>
               </Grid>
-              <Typography style={{ textAlign: "center", paddingBottom: 30 }}>Sign up with email</Typography>
-              <div style={{ display: 'flex', textAlign: "center", justifyContent: 'center', paddingBottom: 80 }}>
-                <Typography variant='body1' style={{ fontWeight: 500, paddingRight: 2 }}>
+              <Typography style={{ textAlign: "center", paddingBottom: smDown ? 10 : 30 }}>Sign up with email</Typography>
+              <div style={{ display: 'flex', textAlign: "center", justifyContent: 'center', paddingBottom: smDown ? 20 : 80 }}>
+                <Typography variant={smDown ? 'body2' : 'body1'} style={{ fontWeight: 500, paddingRight: 2 }}>
                   Already have an account?
                 </Typography>
-                <Typography variant='body1' style={{ fontWeight: 500, color: 'rgba(2, 158, 116, 1)' }}>
+                <Typography variant={smDown ? 'body2' : 'body1'} style={{ fontWeight: 500, color: 'rgba(2, 158, 116, 1)' }}>
                   Sign in
                 </Typography>
               </div>
-              <Typography style={{ textAlign: "center", paddingBottom: 60, color: 'grey' }}>
+              <Typography variant={smDown ? 'body2' : 'body1'} style={{ textAlign: "center", color: 'grey', paddingBottom: 40 }}>
                 To make Medium work, we log user data and share it with service providers. Click “Sign Up” above to accept Medium’s Terms of Service & Privacy Policy.
               </Typography>
             </Grid>
-            <Grid item lg={3}>
-            <div style={{paddingLeft: 'calc(25% - 48px)', position : "absolute"}}>
-            <IconButton aria-label="close" onClick={handleClose}>
-                <CloseIcon />
-              </IconButton>
-            </div>
-
-            <div style={{backgroundImage : `url(${rightImage})`, backgroundPosition : 'center', width : '100%', height : '100%', backgroundSize :'cover'}}>
-            </div>
+            <Grid item md={3} style={{ display: smDown ? 'none' : 'unset' }}>
+              <div style={{ backgroundImage: `url(${rightImage})`, backgroundPosition: 'center', width: '100%', height: '100%', backgroundSize: 'cover' }}>
+              </div>
             </Grid>
           </Grid>
         </Card>
