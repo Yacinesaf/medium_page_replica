@@ -35,7 +35,7 @@ function RegularArticleComponenet({ article }) {
         </Grid>
         <Grid item xs={12} style={{ display: xsOnly ? 'unset' : 'none' }}>
           <div>
-            <Typography variant={xsOnly ? 'caption' : 'body2'} style={{ paddingBottom: 5 }}>{article.subTitle}</Typography>
+            <Typography variant={xsOnly ? 'caption' : 'body2'} style={{ paddingBottom: 5 }}>{article.author}</Typography>
             <div style={{ display: 'flex' }}>
               <div style={{ display: 'flex', flexGrow: 1 }}>
                 <Typography variant={xsOnly ? 'caption' : 'body2'}>{`${article.date} · ${article.timeRead}`} </Typography>

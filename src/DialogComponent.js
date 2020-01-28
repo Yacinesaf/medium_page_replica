@@ -5,32 +5,33 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import CloseIcon from '@material-ui/icons/Close';
 import rightImage from './images/1_lhbp8cxKdkDB-MgmwIPE5w.png'
 import leftImage from './images/1_MQH4A5bsyRz4AWh5V4IfvQ.png'
+import { useTheme } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+
+
 function DialogComponent({ handleClose, bool }) {
+
+  const theme = useTheme();
+  const smDown = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <div>
-
-      <Dialog onClose={handleClose} open={bool} onBackdropClick={handleClose} >
-        <Card style={{ background: 'linear-gradient(to right, #ece9e6, #ffffff)', }}>
-          <Grid container justify='center' >
-            <Grid item xs={12} style={{ textAlign: 'right', paddingTop: 10, paddingRight: 10 }}>
-              <IconButton aria-label="close" onClick={handleClose}>
-                <CloseIcon />
-              </IconButton>
-            </Grid>
+      <Dialog onClose={handleClose} open={bool} onBackdropClick={handleClose} maxWidth='md' >
+        <Card style={{ background: 'linear-gradient(to right, #ece9e6, #ffffff)', height : smDown ? 'unset' : 600 }}>
+          <Grid container justify='center'>
             <Grid item lg={3}>
             <div style={{backgroundImage : `url(${leftImage})`, backgroundPosition : 'center', width : '100%', height : '100%', backgroundSize :'cover'}}>
             </div>
             </Grid>
-            <Grid item xs={11} lg={6}>
+            <Grid item xs={11} lg={6} style={{paddingTop : 80}}>
               <Typography variant='h4' style={{ textAlign: "center", paddingBottom: 5, fontWeight: 500 }}>
                 Join Medium.
               </Typography>
               <Typography variant='body2' style={{ textAlign: "center", color: 'grey', paddingBottom: 25 }}>
                 Create an account to receive great stories in your inbox, personalize your homepage, and follow authors and topics that you love.
               </Typography>
-              <Grid container justify='center' style={{paddingBottom: 15 }}>
-                <Grid item xs={9} >
+              <Grid container justify='center' style={{paddingBottom: 30 }}>
+                <Grid item xs={9} lg={6}>
                   <Button fullWidth variant='outlined' startIcon={<GitHubIcon />} style={{ textTransform: 'none', marginBottom : 10 }}>
                     Sign up whith GitHub
                 </Button>
@@ -39,8 +40,8 @@ function DialogComponent({ handleClose, bool }) {
                 </Button>
                 </Grid>
               </Grid>
-              <Typography style={{ textAlign: "center", paddingBottom: 15 }}>Sign up with email</Typography>
-              <div style={{ display: 'flex', textAlign: "center", justifyContent: 'center', paddingBottom: 40 }}>
+              <Typography style={{ textAlign: "center", paddingBottom: 30 }}>Sign up with email</Typography>
+              <div style={{ display: 'flex', textAlign: "center", justifyContent: 'center', paddingBottom: 80 }}>
                 <Typography variant='body1' style={{ fontWeight: 500, paddingRight: 2 }}>
                   Already have an account?
                 </Typography>
@@ -53,6 +54,12 @@ function DialogComponent({ handleClose, bool }) {
               </Typography>
             </Grid>
             <Grid item lg={3}>
+            <div style={{paddingLeft: 'calc(25% - 48px)', position : "absolute"}}>
+            <IconButton aria-label="close" onClick={handleClose}>
+                <CloseIcon />
+              </IconButton>
+            </div>
+
             <div style={{backgroundImage : `url(${rightImage})`, backgroundPosition : 'center', width : '100%', height : '100%', backgroundSize :'cover'}}>
             </div>
             </Grid>

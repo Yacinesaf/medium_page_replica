@@ -21,7 +21,7 @@ const articles = [
   },
   {
     title : 'How Mormons Built the Next Silicon Valley While No One Was Looking',
-    subTitle : '',
+    subTitle : 'How to Configure Your iPhone to Work for You, Not Against You',
     imgUrl : img1,
     author : 'Mohammed Jihad Sliker',
     date : 'Jan 23',
@@ -31,7 +31,7 @@ const articles = [
   },
   {
     title : 'We Finally Figured Out Who Makes wikiHow’s Bizarre Art',
-    subTitle : '',
+    subTitle : 'How to Configure Your iPhone to Work for You, Not Against You',
     imgUrl : img2,
     author : 'Mohammed Jihad Sliker',
     date : 'Jan 23',
@@ -41,7 +41,7 @@ const articles = [
   },
   {
     title : 'How Science Fiction Imagined the 2020s',
-    subTitle : '',
+    subTitle : 'How to Configure Your iPhone to Work for You, Not Against You',
     imgUrl : img3,
     author : 'Mohammed Jihad Sliker',
     date : 'Jan 23',
@@ -51,7 +51,7 @@ const articles = [
   },
   {
     title : 'How to Configure Your iPhone to Work for You, Not Against You',
-    subTitle : '',
+    subTitle : 'How to Configure Your iPhone to Work for You, Not Against You',
     imgUrl : img4,
     author : 'Mohammed Jihad Sliker',
     date : 'Jan 23',
@@ -61,7 +61,7 @@ const articles = [
   },
   {
     title : 'Survival of the Richest',
-    subTitle : '',
+    subTitle : 'How to Configure Your iPhone to Work for You, Not Against You',
     imgUrl : img5,
     author : 'Mohammed Jihad Sliker',
     date : 'Jan 23',
