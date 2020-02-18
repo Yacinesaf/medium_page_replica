@@ -3,9 +3,9 @@ import { Typography, Avatar } from '@material-ui/core';
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import StarIcon from '@material-ui/icons/Star';
+import { Link } from 'react-router-dom';
 
-
-function BigArticleComponent({article}) {
+function BigArticleComponent({ article }) {
   const theme = useTheme();
   const xsOnly = useMediaQuery(theme.breakpoints.only('xs'));
 
@@ -14,9 +14,11 @@ function BigArticleComponent({article}) {
     <div>
       <div style={{ height: xsOnly ? 300 : 400, width: '100%', backgroundImage: `url(${article.imgUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       </div>
-      <Typography variant={xsOnly ? 'h5' : 'h3'} style={{ paddingTop: 15, fontWeight: 600 }}>
-        {article.title}
-      </Typography>
+      <Link to='./Article' style ={{color : 'black', textTransform : 'none', textDecoration: 'NONE'}}>
+        <Typography variant={xsOnly ? 'h5' : 'h3'} style={{ paddingTop: 15, fontWeight: 600 }}>
+          {article.title}
+        </Typography>
+      </Link>
       <Typography variant='body1' style={{ color: 'grey', paddingTop: 15 }}>
         {article.subTitle}
       </Typography>
