@@ -9,7 +9,7 @@ const subject = [
   },
   {
     subject : 'Games',
-    topics : ['NEXT GEN COONSOLES', 'PC BUILDING', 'LATEST GAMES', 'MAINTAINING A CLEAN DESKTOP', 'MOBILE GAMES']
+    topics : ['NEXT GEN CONSOLES', 'PC BUILDING', 'LATEST GAMES', 'MAINTAINING A CLEAN DESKTOP', 'MOBILE GAMES']
   }
 ]
 
