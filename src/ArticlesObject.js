@@ -90,7 +90,7 @@ const articles = [
     authorImgUrl : null
   },
   {
-    title : 'What Shoshana Zuboff & Mark Zuckerberg both get wrong about privacy rights, and how you can fix it.',
+    title : 'What Shoshana Zuboff & Mark Zuckerberg ',
     subTitle : 'Ten practical perspectives that will help you understand how people do (and will) balance privacy in their daily lives.',
     imgUrl : img5,
     author : 'Jason T. Voiovich',

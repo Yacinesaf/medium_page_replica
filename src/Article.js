@@ -6,8 +6,7 @@ import StarIcon from '@material-ui/icons/Star';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
-import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
-import { AppBar, Typography, Toolbar, Grid, Button, Avatar, Divider } from '@material-ui/core';
+import { AppBar, Typography, Toolbar, Grid, Button, Avatar, Divider, Chip } from '@material-ui/core';
 import CloudIcon from '@material-ui/icons/Cloud';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
@@ -45,39 +44,41 @@ function Article() {
         </Grid>
       </AppBar>
       <Grid container justify='center'>
-        <Grid item xs={4}>
-          <Typography variant='h2' style={{ fontWeight: 600, padding: '5px 0px' }}>
+        <Grid item xs={11} sm={11} md={8} lg={6} xl={4} >
+          <Typography variant={smDown ? 'h4' : 'h2'} style={{ fontWeight: 600, padding: '5px 0px' }}>
             {articles[0].title}
           </Typography>
-          <Typography variant='h5' style={{ paddingBottom: 15 }}>
+          <Typography variant={smDown ? 'subtitle2' : 'h5'} style={{ paddingBottom: 15 }}>
             {articles[7].subTitle}
           </Typography>
+          <div style={{ display: smDown ? 'flex' : 'none', padding: '15px 0px 25px' }}>
+            <TwitterIcon fontSize='default' />
+            <FacebookIcon fontSize='default' style={{padding : '0px 10px' }}/>
+            <BookmarkBorderIcon fontSize='default' />
+          </div>
           <div style={{ display: 'flex', justifyContent: 'center', paddingBottom: 15 }}>
+
             <Avatar alt='sliker' src={articles[0].authorImgUrl} style={{ height: 50, width: 50, boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)' }} />
             <div style={{ width: '100%', paddingLeft: 10 }}>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <Typography variant={xsOnly ? 'caption' : 'body2'} style={{ paddingBottom: 5, paddingRight: 10 }}>{articles[0].author}</Typography>
-                <Button variant='outlined' size='small' color='inherit' style={{ textTransform: 'none', padding: 2 }}>Follow</Button>
+                <Typography variant={xsOnly ? 'subtitle2' : 'body2'} style={{ paddingBottom: 5, paddingRight: 10 }}>{articles[0].author}</Typography>
+                <Button variant='outlined' size='small' color='inherit' style={{ textTransform: 'none', padding: 0 }}>Follow</Button>
               </div>
               <div style={{ display: 'flex' }}>
                 <div style={{ display: 'flex', flexGrow: 1 }}>
                   <Typography variant={xsOnly ? 'caption' : 'body2'}>{`${articles[0].date} · ${articles[0].timeRead}`} </Typography>
                   <StarIcon style={{ fontSize: 15, color: 'grey', paddingLeft: 5, paddingTop: 2 }} />
                 </div>
-                <TwitterIcon style={{ fontSize: 30 }} />
-                <FacebookIcon style={{ fontSize: 30 }} />
-                <BookmarkBorderIcon style={{ fontSize: 30 }} />
+                <div style={{ display: smDown ? 'none' : 'flex' }}>
+                  <TwitterIcon style={{ fontSize: 30 }} />
+                  <FacebookIcon style={{ fontSize: 30, padding : '0px 10px' }} />
+                  <BookmarkBorderIcon style={{ fontSize: 30 }} />
+                </div>
               </div>
             </div>
           </div>
           <div style={{ backgroundImage: `url(${articles[0].imgUrl})`, backgroundPosition: 'center', backgroundSize: 'cover', width: '100%', height: 350 }}></div>
-          <Typography style={{ textAlign: 'center', paddingTop: 15 }}>Photo: Tomohiro Oshumi/Getty Images</Typography>
-          <div style={{ display: 'flex' }}>
-            <Grid container style={{ height: 70 }}>
-              <Grid item xs={12}>
-                <RemoveCircleIcon style={{ transform: 'rotate(90deg)', fontSize: 70 }} />
-              </Grid>
-            </Grid>
+          <Typography variant={smDown ? 'caption' : 'body2'} style={{ display : 'flex', justifyContent : 'center', paddingTop: smDown ? 5 : 15 }}>Photo: Tomohiro Oshumi/Getty Images</Typography>
             <Typography style={{ padding: '15px 0px' }}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id justo nec leo finibus laoreet. Suspendisse ornare libero sed eros
               porttitor pharetra. Suspendisse potenti. Nullam fringilla elit vitae felis mollis, sed feugiat nunc cursus. Curabitur scelerisque
@@ -85,7 +86,7 @@ function Article() {
               Suspendisse hendrerit faucibus congue. Mauris malesuada ligula ut neque vehicula laoreet. Nunc a urna fermentum nulla porta egestas.
               Sed efficitur venenatis egestas. Donec quis ipsum nulla. Donec eu lectus lectus. Etiam a mi fermentum, rhoncus nunc vel, laoreet tellus.
             </Typography>
-          </div>
+
           <Typography style={{ padding: '15px 0px' }}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id justo nec leo finibus laoreet. Suspendisse ornare libero sed eros
             porttitor pharetra. Suspendisse potenti. Nullam fringilla elit vitae felis mollis, sed feugiat nunc cursus. Curabitur scelerisque
@@ -114,12 +115,12 @@ function Article() {
             Suspendisse hendrerit faucibus congue. Mauris malesuada ligula ut neque vehicula laoreet. Nunc a urna fermentum nulla porta egestas.
             Sed efficitur venenatis egestas. Donec quis ipsum nulla. Donec eu lectus lectus. Etiam a mi fermentum, rhoncus nunc vel, laoreet tellus.
           </Typography>
-          <div style={{ display: 'flex', paddingTop: 40 }}>
-            <Button variant='contained' color='default' style={{ textTransform: 'none', color: 'black', borderRadius: 0 }}>Parenting</Button>
-            <Button variant='contained' color='default' style={{ textTransform: 'none', color: 'black', borderRadius: 0, marginLeft: 10 }}>Motherboard</Button>
-            <Button variant='contained' color='default' style={{ textTransform: 'none', color: 'black', borderRadius: 0, marginLeft: 10 }}>Apple Watch</Button>
-            <Button variant='contained' color='default' style={{ textTransform: 'none', color: 'black', borderRadius: 0, marginLeft: 10 }}>Gadgets</Button>
-            <Button variant='contained' color='default' style={{ textTransform: 'none', color: 'black', borderRadius: 0, marginLeft: 10 }}>Digital Life</Button>
+          <div style={{ display: 'flex', paddingTop: 40, flexWrap : 'wrap', }}>
+            <Chip clickable style={{borderRadius: 0, margin :4 }} label='Parenting' />
+            <Chip clickable style={{borderRadius: 0, margin :4 }} label='Motherboard' />
+            <Chip clickable style={{borderRadius: 0, margin :4 }} label='Apple Watch' />
+            <Chip clickable style={{borderRadius: 0, margin :4 }} label='Gadgets' />
+            <Chip clickable style={{borderRadius: 0, margin :4 }} label='Digital Life' />
           </div>
           <div style={{ display: 'flex', alignItems: 'center', paddingTop: 40 }}>
             <div style={{ display: 'flex', flexGrow: 1, alignItems: 'flex-end' }}>
@@ -155,7 +156,7 @@ function Article() {
             </div>
           </div>
           <Divider variant='fullWidth' style={{ margin: '20px 0px' }} />
-          <Button fullWidth variant='outlined' style={{textTransform: 'none', fontSize: 16, padding : '20px 30px', marginBottom : 20}}>See Comments(9)</Button>
+          <Button fullWidth variant='outlined' style={{ textTransform: 'none', fontSize: 16, padding: '20px 30px', marginBottom: 20 }}>See Comments(9)</Button>
         </Grid>
       </Grid>
     </div>

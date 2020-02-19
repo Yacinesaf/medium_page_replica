@@ -14,7 +14,7 @@ function BigArticleComponent({ article }) {
     <div>
       <div style={{ height: xsOnly ? 300 : 400, width: '100%', backgroundImage: `url(${article.imgUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       </div>
-      <Link to='./Article' style ={{color : 'black', textTransform : 'none', textDecoration: 'NONE'}}>
+      <Link to='./Article' style ={{color : 'black', textTransform : 'none', textDecoration: 'none'}}>
         <Typography variant={xsOnly ? 'h5' : 'h3'} style={{ paddingTop: 15, fontWeight: 600 }}>
           {article.title}
         </Typography>
