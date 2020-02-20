@@ -5,7 +5,7 @@ import Medium from './Medium';
 const createRoutes = () => (
   <BrowserRouter>
     <Route exact path='/' component={Medium} />
-    <Route exact path='/article' component={Article} />
+    <Route exact path='/article/:title' component={Article} />
   </BrowserRouter>
 );
 
