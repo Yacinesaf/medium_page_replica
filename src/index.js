@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Medium from './Medium';
-import Article from './Article';
 import createRoutes from './routes';
 
 import * as serviceWorker from './serviceWorker';

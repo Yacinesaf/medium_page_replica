@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { articles } from './ArticlesObject'
@@ -6,42 +6,17 @@ import StarIcon from '@material-ui/icons/Star';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
-import { AppBar, Typography, Toolbar, Grid, Button, Avatar, Divider, Chip } from '@material-ui/core';
+import { AppBar, Typography, Toolbar, Grid, Button, Avatar, Divider, Chip, CircularProgress  } from '@material-ui/core';
 import CloudIcon from '@material-ui/icons/Cloud';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { useParams } from 'react-router-dom'
 
-function Article() {
+function Article({img, paragraphs}) {
   let { title } = useParams();
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
   const xsOnly = useMediaQuery(theme.breakpoints.only('xs'));
-  const [img, setImg] = useState('');
-
-  fetch("https://api.unsplash.com/photos/random?client_id=uxmW_PR6Zn3N6vc5Zsc2pQJVOwzezAXoPBSOi1eXa4A").then(res => {
-    res.json().then(real => {
-      setImg(real.urls.regular)
-    })
-  })
-
-const loremGenerator = () => {
-  return fetch("https://mashape-community-skate-ipsum.p.rapidapi.com/6/1/JSON", {
-    "method": "GET",
-    "headers": {
-      "x-rapidapi-host": "mashape-community-skate-ipsum.p.rapidapi.com",
-      "x-rapidapi-key": "33bfbd583amshc3ab9d939cbd064p1b78dbjsnb9b3cbe85197"
-    }
-  })
-  .then(response => {
-    return response.json().then(res =>{
-      return res
-    })
-  })
-}
-
-const yeet = loremGenerator().then(res =>  {
-  console.dir(typeof res)})
 
   return (
     <div>
@@ -105,44 +80,20 @@ const yeet = loremGenerator().then(res =>  {
               </div>
             </div>
           </div>
-          <div style={{ backgroundImage: `url(${img})`, backgroundPosition: 'center', backgroundSize: 'cover', width: '100%', height: 350 }}></div>
+          <div 
+          style={{ backgroundImage: `url(${img})`, backgroundPosition: 'center', backgroundSize: 'cover', width: '100%', 
+                   height: 350, display : 'flex', justifyContent : 'center', alignItems : 'center' }}>
+            <CircularProgress variant={img ? "determinate" : "indeterminate"} /> 
+          </div>
           <Typography variant={smDown ? 'caption' : 'body2'} style={{ display: 'flex', justifyContent: 'center', paddingTop: smDown ? 5 : 15 }}>Photo: Tomohiro Oshumi/Getty Images</Typography>
-          <Typography style={{ padding: '15px 0px' }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id justo nec leo finibus laoreet. Suspendisse ornare libero sed eros
-            porttitor pharetra. Suspendisse potenti. Nullam fringilla elit vitae felis mollis, sed feugiat nunc cursus. Curabitur scelerisque
-            volutpat fringilla. Phasellus ac metus mi. Fusce ultrices ac mauris quis pulvinar. Aenean faucibus lacinia eros, et luctus purus.
-            Suspendisse hendrerit faucibus congue. Mauris malesuada ligula ut neque vehicula laoreet. Nunc a urna fermentum nulla porta egestas.
-            Sed efficitur venenatis egestas. Donec quis ipsum nulla. Donec eu lectus lectus. Etiam a mi fermentum, rhoncus nunc vel, laoreet tellus.
-            </Typography>
-
-          <Typography style={{ padding: '15px 0px' }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id justo nec leo finibus laoreet. Suspendisse ornare libero sed eros
-            porttitor pharetra. Suspendisse potenti. Nullam fringilla elit vitae felis mollis, sed feugiat nunc cursus. Curabitur scelerisque
-            volutpat fringilla. Phasellus ac metus mi. Fusce ultrices ac mauris quis pulvinar. Aenean faucibus lacinia eros, et luctus purus.
-            Suspendisse hendrerit faucibus congue. Mauris malesuada ligula ut neque vehicula laoreet. Nunc a urna fermentum nulla porta egestas.
-            Sed efficitur venenatis egestas. Donec quis ipsum nulla. Donec eu lectus lectus. Etiam a mi fermentum, rhoncus nunc vel, laoreet tellus.
-          </Typography>
-          <Typography style={{ padding: '15px 0px' }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id justo nec leo finibus laoreet. Suspendisse ornare libero sed eros
-            porttitor pharetra. Suspendisse potenti. Nullam fringilla elit vitae felis mollis, sed feugiat nunc cursus. Curabitur scelerisque
-            volutpat fringilla. Phasellus ac metus mi. Fusce ultrices ac mauris quis pulvinar. Aenean faucibus lacinia eros, et luctus purus.
-            Suspendisse hendrerit faucibus congue. Mauris malesuada ligula ut neque vehicula laoreet. Nunc a urna fermentum nulla porta egestas.
-            Sed efficitur venenatis egestas. Donec quis ipsum nulla. Donec eu lectus lectus. Etiam a mi fermentum, rhoncus nunc vel, laoreet tellus.
-          </Typography>
-          <Typography style={{ padding: '15px 0px' }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id justo nec leo finibus laoreet. Suspendisse ornare libero sed eros
-            porttitor pharetra. Suspendisse potenti. Nullam fringilla elit vitae felis mollis, sed feugiat nunc cursus. Curabitur scelerisque
-            volutpat fringilla. Phasellus ac metus mi. Fusce ultrices ac mauris quis pulvinar. Aenean faucibus lacinia eros, et luctus purus.
-            Suspendisse hendrerit faucibus congue. Mauris malesuada ligula ut neque vehicula laoreet. Nunc a urna fermentum nulla porta egestas.
-            Sed efficitur venenatis egestas. Donec quis ipsum nulla. Donec eu lectus lectus. Etiam a mi fermentum, rhoncus nunc vel, laoreet tellus.
-          </Typography>
-          <Typography style={{ padding: '15px 0px' }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id justo nec leo finibus laoreet. Suspendisse ornare libero sed eros
-            porttitor pharetra. Suspendisse potenti. Nullam fringilla elit vitae felis mollis, sed feugiat nunc cursus. Curabitur scelerisque
-            volutpat fringilla. Phasellus ac metus mi. Fusce ultrices ac mauris quis pulvinar. Aenean faucibus lacinia eros, et luctus purus.
-            Suspendisse hendrerit faucibus congue. Mauris malesuada ligula ut neque vehicula laoreet. Nunc a urna fermentum nulla porta egestas.
-            Sed efficitur venenatis egestas. Donec quis ipsum nulla. Donec eu lectus lectus. Etiam a mi fermentum, rhoncus nunc vel, laoreet tellus.
-          </Typography>
+          <div>
+            {paragraphs.map((x,i) => (
+              <Typography key={i} style={{margin : '15px 0px'}}>
+                {x}
+              </Typography>
+            ))}
+          </div>
+          
           <div style={{ display: 'flex', paddingTop: 40, flexWrap: 'wrap', }}>
             <Chip clickable style={{ borderRadius: 0, margin: 4 }} label='Parenting' />
             <Chip clickable style={{ borderRadius: 0, margin: 4 }} label='Motherboard' />
