@@ -114,24 +114,24 @@ function Article({img, paragraphs}) {
             </div>
           </div>
           <Divider variant='fullWidth' style={{ margin: '20px 0px' }} />
-          <div style={{ width: '100%', paddingLeft: 10, paddingBottom: 30 }}>
+          <div style={{ width: '100%', paddingBottom: 30 }}>
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <Avatar alt='sliker' src={articles[0].authorImgUrl} style={{ height: 100, width: 100, boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)' }} />
               <div style={{ paddingLeft: 20, flexGrow: 1 }}>
-                <Typography variant={xsOnly ? 'h6' : 'h4'} style={{ paddingBottom: 5, paddingRight: 10 }}>Written By</Typography>
-                <Typography variant={xsOnly ? 'h6' : 'h4'} style={{ paddingBottom: 5, paddingRight: 10, fontWeight: 550 }}>{articles[0].author}</Typography>
+                <Typography variant={xsOnly ? 'body1' : 'h4'} style={{ paddingBottom: 5, paddingRight: 10 }}>Written By</Typography>
+                <Typography variant={xsOnly ? 'body1' : 'h4'} style={{ paddingBottom: 5, paddingRight: 10, fontWeight: 550 }}>{articles[0].author}</Typography>
               </div>
-              <Button variant='outlined' size='medium' color='inherit' style={{ textTransform: 'none', padding: 2 }}>Follow</Button>
+              <Button variant='outlined' size='medium' color='inherit' style={{ textTransform: 'none', padding: 0 }}>Follow</Button>
             </div>
           </div>
-          <div style={{ width: '100%', paddingLeft: 10, paddingBottom: 30 }}>
+          <div style={{ width: '100%', paddingBottom: 30 }}>
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <Avatar alt='sliker' src={articles[0].authorImgUrl} style={{ height: 100, width: 100, boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)' }} />
               <div style={{ paddingLeft: 20, flexGrow: 1 }}>
-                <Typography variant={xsOnly ? 'h6' : 'h4'} style={{ paddingBottom: 5, paddingRight: 10 }}>Written By</Typography>
-                <Typography variant={xsOnly ? 'h6' : 'h4'} style={{ paddingBottom: 5, paddingRight: 10, fontWeight: 550 }}>{articles[0].author}</Typography>
+                <Typography variant={xsOnly ? 'body1' : 'h4'} style={{ paddingBottom: 5, paddingRight: 10 }}>Written By</Typography>
+                <Typography variant={xsOnly ? 'body1' : 'h4'} style={{ paddingBottom: 5, paddingRight: 10, fontWeight: 550 }}>{articles[0].author}</Typography>
               </div>
-              <Button variant='outlined' size='medium' color='inherit' style={{ textTransform: 'none', padding: 2 }}>Follow</Button>
+              <Button variant='outlined' size='medium' color='inherit' style={{ textTransform: 'none', padding: 0 }}>Follow</Button>
             </div>
           </div>
           <Divider variant='fullWidth' style={{ margin: '20px 0px' }} />
@@ -144,11 +144,3 @@ function Article({img, paragraphs}) {
 }
 
 export default Article;
-
-// <div>
-// {[0,1,2,3,4,5].map((x,i) => (
-//   <Typography key={i} style={{ padding: '15px 0px' }}>
-//     {console.log(yeet[x])}
-//   </Typography>
-// ))}
-// </div>
