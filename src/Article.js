@@ -89,7 +89,7 @@ function Article({ img, paragraphs }) {
             </div>
           </div>
           {loadingState()}
-          {isLoading ? <Skeleton animation='wave' height='450px' style={{ width: '100%' }} /> : <div
+          {isLoading ? <Skeleton animation='wave' variant='rect' height='450px' style={{ width: '100%' }} /> : <div
             style={{
               backgroundImage: `url(${img})`, backgroundPosition: 'center', backgroundSize: 'cover', width: '100%',
               height: 450, display: 'flex', justifyContent: 'center', alignItems: 'center'
