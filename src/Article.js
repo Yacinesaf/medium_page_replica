@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { articles } from './ArticlesObject'
@@ -6,17 +6,25 @@ import StarIcon from '@material-ui/icons/Star';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
-import { AppBar, Typography, Toolbar, Grid, Button, Avatar, Divider, Chip, CircularProgress  } from '@material-ui/core';
+import { AppBar, Typography, Toolbar, Grid, Button, Avatar, Divider, Chip } from '@material-ui/core';
 import CloudIcon from '@material-ui/icons/Cloud';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Skeleton from '@material-ui/lab/Skeleton';
 import { useParams } from 'react-router-dom'
 
-function Article({img, paragraphs}) {
+function Article({ img, paragraphs }) {
   let { title } = useParams();
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
   const xsOnly = useMediaQuery(theme.breakpoints.only('xs'));
+  const [isLoading, setIsLoading] = useState(true)
+
+  const loadingState = () => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1500)
+  }
 
   return (
     <div>
@@ -80,20 +88,23 @@ function Article({img, paragraphs}) {
               </div>
             </div>
           </div>
-          <div 
-          style={{ backgroundImage: `url(${img})`, backgroundPosition: 'center', backgroundSize: 'cover', width: '100%', 
-                   height: 350, display : 'flex', justifyContent : 'center', alignItems : 'center' }}>
-            <CircularProgress variant={img ? "determinate" : "indeterminate"} /> 
-          </div>
+          {loadingState()}
+          {isLoading ? <Skeleton animation='wave' height='450px' style={{ width: '100%' }} /> : <div
+            style={{
+              backgroundImage: `url(${img})`, backgroundPosition: 'center', backgroundSize: 'cover', width: '100%',
+              height: 450, display: 'flex', justifyContent: 'center', alignItems: 'center'
+            }}>
+          </div>}
+
           <Typography variant={smDown ? 'caption' : 'body2'} style={{ display: 'flex', justifyContent: 'center', paddingTop: smDown ? 5 : 15 }}>Photo: Tomohiro Oshumi/Getty Images</Typography>
           <div>
-            {paragraphs.map((x,i) => (
-              <Typography key={i} style={{margin : '15px 0px'}}>
+            {paragraphs.map((x, i) => (
+              <Typography key={i} style={{ margin: '15px 0px' }}>
                 {x}
               </Typography>
             ))}
           </div>
-          
+
           <div style={{ display: 'flex', paddingTop: 40, flexWrap: 'wrap', }}>
             <Chip clickable style={{ borderRadius: 0, margin: 4 }} label='Parenting' />
             <Chip clickable style={{ borderRadius: 0, margin: 4 }} label='Motherboard' />

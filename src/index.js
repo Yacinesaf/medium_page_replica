@@ -1,12 +1,9 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Medium from './Medium';
 import createRoutes from './routes';
 
 import * as serviceWorker from './serviceWorker';
 const routes = createRoutes();
-// ReactDOM.render(<Medium />, document.getElementById('root'));
 ReactDOM.render(
   routes,
   document.getElementById('root')
